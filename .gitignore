@@ -3,6 +3,11 @@
 *coverage*
 *venv
 .env
+.idea/**/shelf/
+.idea/**/sonarlint/
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/workspace.xml
 __pycache__/
 dist/
 node_modules
