@@ -148,3 +148,18 @@ def test_mutable_mapping_setitem() -> None:
     assert str(seq) == f"<MutableSequence ['{templatest.utils.ALPHA[0]}']>"
     seq[0] = templatest.utils.ALPHA[1]
     assert str(seq) == f"<MutableSequence ['{templatest.utils.ALPHA[1]}']>"
+
+
+def test_get_index(register_templates: RegisterTemplatesType) -> None:
+    """Test :meth:`Templates.getindex` method.
+
+    :param register_templates: Register any number of test subclasses of
+        :class:`templatest.BaseTemplate`
+    """
+    register_templates(
+        (TEST_CLASS_NAME[0],), (TEST_CLASS_NAME[1],), (TEST_CLASS_NAME[2],)
+    )
+    assert templatest.templates.registered.getindex(TEST_INST_NAME[0]) == 0
+    assert templatest.templates.registered.getindex(TEST_INST_NAME[1]) == 1
+    assert templatest.templates.registered.getindex(TEST_INST_NAME[2]) == 2
+    assert templatest.templates.registered.getindex(TEST_INST_NAME[3]) is None

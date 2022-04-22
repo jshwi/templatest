@@ -58,3 +58,12 @@ class Registered(_MutableSequence[Template]):
         :return: A tuple of names of the classes within this sequence.
         """
         return tuple(i.name for i in self)
+
+    def getindex(self, name: str) -> _t.Optional[int]:
+        """Get the index of a template by name if it exists.
+
+        :param name: Name assigned to template.
+        :return: Index of the template if it exists, else None.
+        """
+        result = next((i for i in self if i.name == name), None)
+        return result if result is None else self.index(result)

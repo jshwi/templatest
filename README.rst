@@ -115,6 +115,10 @@ Organise tests by prefixing subclasses for common tests
     >>>
     >>> templatest.templates.registered.getgroup('err').getids()
     ('err-example-template',)
+    >>> templatest.templates.registered.getindex('example-template')
+    0
+    >>> templatest.templates.registered.getindex('err-example-template')
+    1
 
 Example usage with a parametrized test
 **************************************
