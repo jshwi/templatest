@@ -16,10 +16,6 @@
   <component name="PackageRequirementsSettings">
     <option name="requirementsPath" value="" />
   </component>
-  <component name="PyDocumentationSettings">
-    <option name="format" value="PLAIN" />
-    <option name="myDocStringFormat" value="Plain" />
-  </component>
   <component name="ReSTService">
     <option name="DOC_DIR" value="$MODULE_DIR$/docs" />
   </component>
