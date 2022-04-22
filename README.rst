@@ -48,11 +48,11 @@ placing it in tests/__init__.py
     ... class _ExampleTemplate(templatest.BaseTemplate):
     ...     @property
     ...     def template(self) -> str:
-    ...         return "Hello, world!"
+    ...         return "Hello, world"
     ...
     ...     @property
     ...     def expected(self) -> str:
-    ...         return "Hello, world!"
+    ...         return "Expected result"
     >>>
     >>> templatest.templates.registered.getids()
     ('example-template',)
@@ -69,15 +69,26 @@ The class's properties will then be available in the ``templatest.templates.regi
 
 .. code-block:: python
 
-    template = templates.templates[0]
-    name = template.name
-    template = template.template
-    expected = template.expected
+    >>> registered = templatest.templates.registered[0]
+    >>> registered.name
+    'example-template'
+    >>> registered.template
+    'Hello, world'
+    >>> registered.expected
+    'Expected result'
 
 .. code-block:: python
 
-    template = templates.templates[0]
-    name, template, expected = template
+    >>> registered = templatest.templates.registered[0]
+    >>> registered
+    Template(name='example-template', template='Hello, world', expected='Expected result')
+    >>> name, template, expected = registered
+    >>> name
+    'example-template'
+    >>> template
+    'Hello, world'
+    >>> expected
+    'Expected result'
 
 Organise tests by prefixing subclasses for common tests
 
