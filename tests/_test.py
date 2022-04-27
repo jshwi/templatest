@@ -163,3 +163,22 @@ def test_get_index(register_templates: RegisterTemplatesType) -> None:
     assert templatest.templates.registered.getindex(TEST_INST_NAME[1]) == 1
     assert templatest.templates.registered.getindex(TEST_INST_NAME[2]) == 2
     assert templatest.templates.registered.getindex(TEST_INST_NAME[3]) is None
+
+
+def test_get_by_name(register_templates: RegisterTemplatesType) -> None:
+    """Test :meth:`Templates.getbyname` method.
+
+    :param register_templates: Register any number of test subclasses of
+        :class:`templatest.BaseTemplate`
+    """
+    registered = templatest.templates.registered
+    register_templates(
+        (TEST_CLASS_NAME[0],), (TEST_CLASS_NAME[1],), (TEST_CLASS_NAME[2],)
+    )
+    result_1 = registered.getbyname(TEST_INST_NAME[0])
+    result_2 = registered.getbyname(TEST_INST_NAME[1])
+    result_3 = registered.getbyname(TEST_INST_NAME[2])
+    assert result_1.name == TEST_INST_NAME[0]  # type: ignore
+    assert result_2.name == TEST_INST_NAME[1]  # type: ignore
+    assert result_3.name == TEST_INST_NAME[2]  # type: ignore
+    assert templatest.templates.registered.getbyname(TEST_INST_NAME[3]) is None

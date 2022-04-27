@@ -118,6 +118,15 @@ Additionally, templates can be referenced by index
     >>> expected
     'Goodbye, world...'
 
+And a template can be returned by name
+
+.. code-block::
+
+    >>> templatest.templates.registered.getbyname('example-template')
+    Template(name='example-template', template='Hello, world', expected='Expected result')
+    >>> templatest.templates.registered.getbyname('err-example-template')
+    Template(name='err-example-template', template='Goodbye, world...', expected='Goodbye, world...')
+
 Example usage with a parametrized test
 **************************************
 
