@@ -53,15 +53,6 @@ placing it in tests/__init__.py
     ...     @property
     ...     def expected(self) -> str:
     ...         return "Expected result"
-    >>>
-    >>> templatest.templates.registered.getids()
-    ('example-template',)
-    >>>
-    >>> templatest.templates.registered.filtergroup('err').getids()
-    ('example-template',)
-    >>>
-    >>> templatest.templates.registered.getgroup('err').getids()
-    ()
 
 
 The class's properties will then be available in the ``templatest.templates.registered`` object as an instance of
@@ -69,26 +60,8 @@ The class's properties will then be available in the ``templatest.templates.regi
 
 .. code-block:: python
 
-    >>> registered = templatest.templates.registered[0]
-    >>> registered.name
-    'example-template'
-    >>> registered.template
-    'Hello, world'
-    >>> registered.expected
-    'Expected result'
-
-.. code-block:: python
-
-    >>> registered = templatest.templates.registered[0]
-    >>> registered
-    Template(name='example-template', template='Hello, world', expected='Expected result')
-    >>> name, template, expected = registered
-    >>> name
-    'example-template'
-    >>> template
-    'Hello, world'
-    >>> expected
-    'Expected result'
+    >>> templatest.templates.registered
+    <Registered [Template(name='example-template', template='Hello, world', expected='Expected result')]>
 
 Organise tests by prefixing subclasses for common tests
 
@@ -115,10 +88,35 @@ Organise tests by prefixing subclasses for common tests
     >>>
     >>> templatest.templates.registered.getgroup('err').getids()
     ('err-example-template',)
+
+Additionally, templates can be referenced by index
+
+.. code-block::
+
     >>> templatest.templates.registered.getindex('example-template')
     0
     >>> templatest.templates.registered.getindex('err-example-template')
     1
+
+.. code-block:: python
+
+    >>> registered = templatest.templates.registered[0]
+    >>> registered.name
+    'example-template'
+    >>> registered.template
+    'Hello, world'
+    >>> registered.expected
+    'Expected result'
+
+.. code-block:: python
+
+    >>> name, template, expected = templatest.templates.registered[1]
+    >>> name
+    'err-example-template'
+    >>> template
+    'Goodbye, world...'
+    >>> expected
+    'Goodbye, world...'
 
 Example usage with a parametrized test
 **************************************
