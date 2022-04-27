@@ -33,24 +33,28 @@ class Registered(_MutableSequence[Template]):
         super().__init__()
         self.extend(args)
 
-    def filtergroup(self, prefix: str) -> Registered:
+    def filtergroup(self, *prefix: str) -> Registered:
         """Get new object excluding templates sharing a prefix.
 
-        :param prefix: Common prefix to registered subclasses.
+        :param prefix: Common prefix(s) to registered subclasses.
         :return: New :class:`Registered` object containing
             :class:`Template` objects that do not have the provided
             prefix in their names.
         """
-        return Registered(*(i for i in self if not i.name.startswith(prefix)))
+        return Registered(
+            *(x for x in self if not any(x.name.startswith(y) for y in prefix))
+        )
 
-    def getgroup(self, prefix: str) -> Registered:
+    def getgroup(self, *prefix: str) -> Registered:
         """Get new object containing templates sharing a prefix.
 
-        :param prefix: Common prefix to registered subclasses.
+        :param prefix: Common prefix(s) to registered subclasses.
         :return: New :class:`Registered` object containing
             :class:`Template` objects with common prefix to their names.
         """
-        return Registered(*(i for i in self if i.name.startswith(prefix)))
+        return Registered(
+            *(x for y in prefix for x in self if x.name.startswith(y))
+        )
 
     def getids(self) -> _t.Tuple[str, ...]:
         """Returns a tuple of all the names of the classes contained.

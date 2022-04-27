@@ -89,6 +89,37 @@ Organise tests by prefixing subclasses for common tests
     >>> templatest.templates.registered.getgroup('err').getids()
     ('err-example-template',)
 
+``Registered.filtergroup`` can be chained, but this won't work for ``Registered.getgroup``
+
+More succinctly, multiple prefixes can be used
+
+.. code-block:: python
+
+    >>> # tests/__init__.py
+    >>>
+    >>> @templatest.templates.register
+    ... class _MultiExampleTemplate(templatest.BaseTemplate):
+    ...
+    ...     @property
+    ...     def template(self) -> str:
+    ...         return "Hello world, and goodbye world..."
+    ...
+    ...     @property
+    ...     def expected(self) -> str:
+    ...         return "Hello world, and goodbye world..."
+    >>>
+    >>> templatest.templates.registered.filtergroup('err').filtergroup('multi').getids()
+    ('example-template',)
+    >>>
+    >>> templatest.templates.registered.getgroup('err').getgroup('multi').getids()
+    ()
+    >>>
+    >>> templatest.templates.registered.filtergroup('err', 'multi').getids()
+    ('example-template',)
+    >>>
+    >>> templatest.templates.registered.getgroup('err', 'multi').getids()
+    ('err-example-template', 'multi-example-template')
+
 Additionally, templates can be referenced by index
 
 .. code-block::

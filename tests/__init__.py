@@ -9,8 +9,10 @@ from templatest.utils import VarSeq
 
 TEST_CLASS_NAME = VarSeq("_TestTemplate")
 TEST_ERR_CLASS_NAME = VarSeq("_ErrTestTemplate")
+TEST_MULTI_CLASS_NAME = VarSeq("_MultiTestTemplate")
 TEST_INST_NAME = VarSeq("test-template", suffix="-")
 TEST_ERR_INST_NAME = VarSeq("err-test-template", suffix="-")
+TEST_MULTI_INST_NAME = VarSeq("multi-test-template", suffix="-")
 
 RegisterTemplatesType = t.Callable[..., None]
 

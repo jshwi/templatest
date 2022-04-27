@@ -8,12 +8,15 @@ import typing as t
 import pytest
 
 import templatest
+from templatest.utils import VarSeq
 
 from . import (
     TEST_CLASS_NAME,
     TEST_ERR_CLASS_NAME,
     TEST_ERR_INST_NAME,
     TEST_INST_NAME,
+    TEST_MULTI_CLASS_NAME,
+    TEST_MULTI_INST_NAME,
     RegisterTemplatesType,
     RegisterTemplateType,
 )
@@ -182,3 +185,109 @@ def test_get_by_name(register_templates: RegisterTemplatesType) -> None:
     assert result_2.name == TEST_INST_NAME[1]  # type: ignore
     assert result_3.name == TEST_INST_NAME[2]  # type: ignore
     assert templatest.templates.registered.getbyname(TEST_INST_NAME[3]) is None
+
+
+@pytest.mark.parametrize(
+    "arg_1,expected_1",
+    [
+        ("test", TEST_INST_NAME),
+        ("err", TEST_ERR_INST_NAME),
+        ("multi", TEST_MULTI_INST_NAME),
+    ],
+    ids=["test", "err", "multi"],
+)
+@pytest.mark.parametrize(
+    "arg_2,expected_2",
+    [
+        ("test", TEST_INST_NAME),
+        ("err", TEST_ERR_INST_NAME),
+        ("multi", TEST_MULTI_INST_NAME),
+    ],
+    ids=["test", "err", "multi"],
+)
+def test_get_groups(
+    register_templates: RegisterTemplatesType,
+    arg_1: str,
+    arg_2: str,
+    expected_1: VarSeq,
+    expected_2: VarSeq,
+) -> None:
+    """Test ``Templates.getgroup`` method with multiple args.
+
+    :param register_templates: Register any number of test subclasses of
+        ``BaseTemplate.``
+    """
+    register_templates(
+        (TEST_CLASS_NAME[0],), (TEST_CLASS_NAME[1],), (TEST_CLASS_NAME[2],)
+    )
+    register_templates(
+        (TEST_ERR_CLASS_NAME[0],),
+        (TEST_ERR_CLASS_NAME[1],),
+        (TEST_ERR_CLASS_NAME[2],),
+    )
+    register_templates(
+        (TEST_MULTI_CLASS_NAME[0],),
+        (TEST_MULTI_CLASS_NAME[1],),
+        (TEST_MULTI_CLASS_NAME[2],),
+    )
+    group = templatest.templates.registered.getgroup(arg_1, arg_2).getids()
+    assert len(group) == 6
+    assert expected_1[0] in group
+    assert expected_1[1] in group
+    assert expected_1[2] in group
+    assert expected_2[0] in group
+    assert expected_2[1] in group
+    assert expected_2[2] in group
+
+
+@pytest.mark.parametrize(
+    "arg_1,expected_1",
+    [
+        ("test", TEST_INST_NAME),
+        ("err", TEST_ERR_INST_NAME),
+        ("multi", TEST_MULTI_INST_NAME),
+    ],
+    ids=["test", "err", "multi"],
+)
+@pytest.mark.parametrize(
+    "arg_2,expected_2",
+    [
+        ("test", TEST_INST_NAME),
+        ("err", TEST_ERR_INST_NAME),
+        ("multi", TEST_MULTI_INST_NAME),
+    ],
+    ids=["test", "err", "multi"],
+)
+def test_filter_groups(
+    register_templates: RegisterTemplatesType,
+    arg_1: str,
+    arg_2: str,
+    expected_1: VarSeq,
+    expected_2: VarSeq,
+) -> None:
+    """Test ``Templates.filtergroup`` method with multiple args.
+
+    :param register_templates: Register any number of test subclasses of
+        ``BaseTemplate.``
+    """
+    register_templates(
+        (TEST_CLASS_NAME[0],), (TEST_CLASS_NAME[1],), (TEST_CLASS_NAME[2],)
+    )
+    register_templates(
+        (TEST_ERR_CLASS_NAME[0],),
+        (TEST_ERR_CLASS_NAME[1],),
+        (TEST_ERR_CLASS_NAME[2],),
+    )
+    register_templates(
+        (TEST_MULTI_CLASS_NAME[0],),
+        (TEST_MULTI_CLASS_NAME[1],),
+        (TEST_MULTI_CLASS_NAME[2],),
+    )
+    group = templatest.templates.registered.filtergroup(arg_1, arg_2).getids()
+    assert len(group) in range(3, 7)  # some tests overlap
+    assert expected_1[0] not in group
+    assert expected_1[1] not in group
+    assert expected_1[2] not in group
+    assert expected_2[0] not in group
+    assert expected_2[1] not in group
+    assert expected_2[2] not in group
