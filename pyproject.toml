@@ -53,7 +53,7 @@ modules = [
     "typecheck",
     "unused",
     "lint",
-    "coverage",
+    "test",
     "docs",
 ]
 
