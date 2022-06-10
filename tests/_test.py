@@ -39,6 +39,21 @@ def test_var_seq() -> None:
         const[4] = "CUSTOM_CONST"
 
 
+def test_var_seq_suffix() -> None:
+    """Test ``VarSeqSuffix``."""
+    email = templatest.utils.VarSeqSuffix("user", "@email.com")
+    assert email[0] == "user_0@email.com"
+    assert str(email) == "<VarSeqSuffix ['user_0@email.com']>"
+    assert email[2] == "user_2@email.com"
+    assert str(email) == (
+        "<VarSeqSuffix"
+        " ['user_0@email.com', 'user_1@email.com', 'user_2@email.com']>"
+    )
+    assert email[1:3] == ["user_1@email.com", "user_2@email.com"]
+    with pytest.raises(NotImplementedError):
+        email[2] = "custom_user@email.com"
+
+
 def test_rand_str_len_seq() -> None:
     """Test ``RandStrLenSeq``."""
     len_3 = templatest.utils.RandStrLenSeq(3)

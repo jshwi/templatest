@@ -61,6 +61,44 @@ class VarSeq(_MutableStrSequence):
         return f"{self._name}{self._suffix}{index}"
 
 
+class VarSeqSuffix(VarSeq):
+    """Get string as instantiated name with the index before suffix.
+
+    The instantiated object will always return the same string as per
+    the index. If index does not exist, strings will be generated up to
+    the selected index.
+
+    :param name: Name of the string to return.
+    :param suffix: Last string to return.
+    :param separator: Seperator between str and index.
+
+    :example:
+
+        >>> from templatest.utils import VarSeqSuffix
+        >>> email = VarSeqSuffix("u", '@email.com')
+        >>> email[0]
+        'u_0@email.com'
+        >>> email
+        <VarSeqSuffix ['u_0@email.com']>
+        >>> email[2]
+        'u_2@email.com'
+        >>> email
+        <VarSeqSuffix ['u_0@email.com', 'u_1@email.com', 'u_2@email.com']>
+    """
+
+    def __init__(
+        self, name: str, suffix: str, separator: object = None
+    ) -> None:
+        super().__init__(name, suffix=separator)
+        self._new_suffix = suffix
+
+    def __setitem__(self, i: _t.Any, o: _t.Any) -> None:
+        raise NotImplementedError
+
+    def _string(self, index: int) -> str:
+        return f"{super()._string(index)}{self._new_suffix}"
+
+
 class RandStrLenSeq(_MutableStrSequence):
     """Get random string of varying length.
 
