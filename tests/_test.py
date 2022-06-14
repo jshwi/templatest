@@ -69,6 +69,20 @@ def test_rand_str_len_seq() -> None:
         len_3[1] = "custom_str"
 
 
+def test_var_seq_empty_str_seperator() -> None:
+    """Test ``VarSeqSuffix`` with no separator."""
+    post_title = templatest.utils.VarSeq("postTitle", suffix="")
+    assert post_title[0] == "postTitle0"
+
+
+def test_var_seq_suffix_empty_str_suffix() -> None:
+    """Test ``VarSeq`` with no suffix."""
+    post_title = templatest.utils.VarSeqSuffix(
+        "user", "@email.com", separator=""
+    )
+    assert post_title[0] == "user0@email.com"
+
+
 def test_register_template(register_template: RegisterTemplateType) -> None:
     """Test registering a :class:`templatest.BaseTemplate` subclass.
 

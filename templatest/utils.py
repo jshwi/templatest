@@ -49,7 +49,7 @@ class VarSeq(_MutableStrSequence):
     def __init__(self, name: str, suffix: object = None) -> None:
         super().__init__()
         self._name = name
-        self._suffix = suffix or "_"
+        self._suffix = suffix if suffix is not None else "_"
 
     def __setitem__(self, i: _t.Any, o: _t.Any) -> None:
         raise NotImplementedError
