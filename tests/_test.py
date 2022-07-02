@@ -245,6 +245,10 @@ def test_get_groups(
 
     :param register_templates: Register any number of test subclasses of
         ``BaseTemplate.``
+    :param arg_1: Argument one to pass to ``getgroup``:
+    :param arg_2: Argument two to pass to ``getgroup``:
+    :param expected_1: First expected result.
+    :param expected_2: Second expected result.
     """
     register_templates(
         (TEST_CLASS_NAME[0],), (TEST_CLASS_NAME[1],), (TEST_CLASS_NAME[2],)
@@ -298,6 +302,10 @@ def test_filter_groups(
 
     :param register_templates: Register any number of test subclasses of
         ``BaseTemplate.``
+    :param arg_1: Argument one to pass to ``getgroup``:
+    :param arg_2: Argument two to pass to ``getgroup``:
+    :param expected_1: First expected result.
+    :param expected_2: Second expected result.
     """
     register_templates(
         (TEST_CLASS_NAME[0],), (TEST_CLASS_NAME[1],), (TEST_CLASS_NAME[2],)

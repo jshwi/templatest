@@ -45,7 +45,9 @@ def fixture_register_template() -> RegisterTemplateType:
 
 
 @pytest.fixture(name="register_templates")
-def fixture_register_templates(register_template: RegisterTemplatesType):
+def fixture_register_templates(
+    register_template: RegisterTemplatesType,
+) -> t.Callable[..., None]:
     """Register any number of :class:`templatest.BaseTemplate`
     subclasses.
 
