@@ -63,7 +63,7 @@ class Registered(_MutableSequence[Template]):
         """
         return tuple(i.name for i in self)
 
-    def getbyname(self, name: str) -> _t.Optional[Template]:
+    def getbyname(self, name: str) -> Template | None:
         """Get a template by name if it exists.
 
         :param name: Name assigned to template.
@@ -71,7 +71,7 @@ class Registered(_MutableSequence[Template]):
         """
         return next((i for i in self if i.name == name), None)
 
-    def getindex(self, name: str) -> _t.Optional[int]:
+    def getindex(self, name: str) -> int | None:
         """Get the index of a template by name if it exists.
 
         :param name: Name assigned to template.
