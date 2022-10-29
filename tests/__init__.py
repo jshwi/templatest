@@ -3,6 +3,8 @@ tests
 =====
 """
 # pylint: disable=too-few-public-methods
+from __future__ import annotations
+
 import typing as t
 
 from templatest.utils import VarSeq
@@ -23,7 +25,7 @@ class RegisterTemplateType(t.Protocol):
     def __call__(
         self,
         name: str,
-        template: t.Optional[str] = None,
-        expected: t.Optional[str] = None,
+        template: str | None = None,
+        expected: str | None = None,
     ) -> None:
         """No __call__ method implemented."""

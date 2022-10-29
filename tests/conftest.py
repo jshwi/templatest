@@ -2,6 +2,8 @@
 tests.conftest
 ==============
 """
+from __future__ import annotations
+
 import typing as t
 
 import pytest
@@ -25,9 +27,7 @@ def fixture_register_template() -> RegisterTemplateType:
     """
 
     def _register_template(
-        name: str,
-        template: t.Optional[str] = None,
-        expected: t.Optional[str] = None,
+        name: str, template: str | None = None, expected: str | None = None
     ) -> None:
         class _TestTemplate(templatest.BaseTemplate):
             @property
@@ -45,7 +45,9 @@ def fixture_register_template() -> RegisterTemplateType:
 
 
 @pytest.fixture(name="register_templates")
-def fixture_register_templates(register_template: RegisterTemplatesType):
+def fixture_register_templates(
+    register_template: RegisterTemplatesType,
+) -> t.Callable[..., None]:
     """Register any number of :class:`templatest.BaseTemplate`
     subclasses.
 
