@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 [Unreleased](https://github.com/jshwi/templatest/compare/v0.5.0...HEAD)
 ------------------------------------------------------------------------
+### Added
+- Adds `templatest.utils.VarPrefix`
 
 [0.5.0](https://github.com/jshwi/templatest/releases/tag/v0.5.0) - 2022-06-14
 ------------------------------------------------------------------------

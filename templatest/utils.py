@@ -136,3 +136,37 @@ class RandStrLenSeq(_MutableStrSequence):
 
     def _string(self, index: int) -> str:
         return "".join(_random.choices(_string.ascii_lowercase, k=self._len))
+
+
+class VarPrefix:
+    """Get string with prefix.
+
+    :param prefix: String to prefix attribute with.
+
+    :example:
+
+        >>> from templatest.utils import VarPrefix
+        >>> flag = VarPrefix("--")
+        >>> flag.src
+        '--src'
+        >>> flag.dst
+        '--dst'
+        >>> flag.exclude
+        '--exclude'
+        >>> flag
+        <VarPrefix ['--src', '--dst', '--exclude']>
+    """
+
+    def __init__(self, prefix: str) -> None:
+        self._prefix = prefix
+
+    def __repr__(self) -> str:
+        items = [i for i in self.__dict__.values() if i != self._prefix]
+        return f"<{self.__class__.__name__} {items}>"
+
+    def __getattr__(self, item: str) -> str:
+        while True:
+            try:
+                return super().__getattribute__(item)
+            except AttributeError:
+                self.__setattr__(item, f"{self._prefix}{item}")

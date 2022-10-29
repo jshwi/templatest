@@ -83,6 +83,15 @@ def test_var_seq_suffix_empty_str_suffix() -> None:
     assert post_title[0] == "user0@email.com"
 
 
+def test_var_prefix() -> None:
+    """Test ``VarPrefix``."""
+    flag = templatest.utils.VarPrefix("--")
+    assert flag.src == "--src"
+    assert flag.dst == "--dst"
+    assert flag.exclude == "--exclude"
+    assert str(flag) == "<VarPrefix ['--src', '--dst', '--exclude']>"
+
+
 def test_register_template(register_template: RegisterTemplateType) -> None:
     """Test registering a :class:`templatest.BaseTemplate` subclass.
 
