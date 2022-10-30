@@ -27,7 +27,7 @@ description = "Templates for testing with strings"
 license = "MIT"
 name = "templatest"
 readme = "README.rst"
-version = "0.6.0"
+version = "0.7.0"
 
 [tool.poetry.dependencies]
 python = "^3.8"
