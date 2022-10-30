@@ -147,6 +147,7 @@ class VarPrefix:
 
         >>> from templatest.utils import VarPrefix
         >>> flag = VarPrefix("--")
+        >>> slugify = VarPrefix("--", slug="-")
         >>> flag.src
         '--src'
         >>> flag.dst
@@ -155,13 +156,22 @@ class VarPrefix:
         '--exclude'
         >>> flag
         <VarPrefix ['--src', '--dst', '--exclude']>
+        >>> flag.force_remove
+        '--force_remove'
+        >>> slugify.force_remove
+        '--force-remove'
     """
 
-    def __init__(self, prefix: str) -> None:
+    def __init__(self, prefix: str, slug: str = "_") -> None:
         self._prefix = prefix
+        self._slug = slug
 
     def __repr__(self) -> str:
-        items = [i for i in self.__dict__.values() if i != self._prefix]
+        items = [
+            i
+            for i in self.__dict__.values()
+            if i not in (self._prefix, self._slug)
+        ]
         return f"<{self.__class__.__name__} {items}>"
 
     def __getattr__(self, item: str) -> str:
@@ -169,4 +179,6 @@ class VarPrefix:
             try:
                 return super().__getattribute__(item)
             except AttributeError:
-                self.__setattr__(item, f"{self._prefix}{item}")
+                self.__setattr__(
+                    item, f"{self._prefix}{item.replace('_', self._slug)}"
+                )

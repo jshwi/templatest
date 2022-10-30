@@ -86,10 +86,13 @@ def test_var_seq_suffix_empty_str_suffix() -> None:
 def test_var_prefix() -> None:
     """Test ``VarPrefix``."""
     flag = templatest.utils.VarPrefix("--")
+    slugify = templatest.utils.VarPrefix("--", slug="-")
     assert flag.src == "--src"
     assert flag.dst == "--dst"
     assert flag.exclude == "--exclude"
     assert str(flag) == "<VarPrefix ['--src', '--dst', '--exclude']>"
+    assert flag.force_remove == "--force_remove"
+    assert slugify.force_remove == "--force-remove"
 
 
 def test_register_template(register_template: RegisterTemplateType) -> None:
