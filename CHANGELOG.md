@@ -13,6 +13,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 [0.7.0](https://github.com/jshwi/templatest/releases/tag/v0.7.0) - 2022-10-30
 ------------------------------------------------------------------------
+### Added
+- Adds `slug` argument to `templatest.utils.VarPrefix`
 
 [0.6.0](https://github.com/jshwi/templatest/releases/tag/v0.6.0) - 2022-10-29
 ------------------------------------------------------------------------
