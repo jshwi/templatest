@@ -23,7 +23,7 @@ class VarSeq(_MutableStrSequence):
     the selected index.
 
     :param name: Name of the string to return.
-    :param suffix: Seperator between str and index.
+    :param suffix: Separator between str and index.
 
     :example:
 
@@ -70,7 +70,7 @@ class VarSeqSuffix(VarSeq):
 
     :param name: Name of the string to return.
     :param suffix: Last string to return.
-    :param separator: Seperator between str and index.
+    :param separator: Separator between str and index.
 
     :example:
 
