@@ -1,14 +1,34 @@
 {
-  "name": "templatest",
-  "version": "0.7.0",
+  "author": "Stephen Whitlock",
+  "bugs": {
+    "url": "https://github.com/jshwi/templatest/issues"
+  },
   "description": "Templates for testing with strings",
-  "private": true,
+  "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.5.1"
+  },
   "directories": {
     "doc": "docs",
     "test": "tests"
   },
+  "homepage": "https://jshwi.github.io/templatest/",
+  "keywords": [
+    "python3.8",
+    "git",
+    "commandline",
+    "wrapper",
+    "script",
+    "tree"
+  ],
+  "license": "MIT",
+  "name": "templatest",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jshwi/templatest.git"
+  },
   "scripts": {
-    "toml:sort": "poetry run toml-sort pyproject.toml --in-place --all",
     "audit": "npm-run-all audit:*",
     "audit:misc": "npx prettier -c .",
     "audit:py": "poetry run pyaud audit",
@@ -23,32 +43,12 @@
     "format:py:docs": "poetry run pyaud format-docs",
     "format:py:str": "poetry run pyaud format-str",
     "lint": "poetry run pyaud lint",
-    "types": "poetry run pyaud typecheck",
     "test": "npm-run-all test:**",
     "test:doctest:package": "poetry run sphinx-build -M doctest docs/ docs/_build",
     "test:doctest:readme": "poetry run python -m doctest README.rst",
-    "test:unit": "poetry run pyaud tests"
+    "test:unit": "poetry run pyaud tests",
+    "toml:sort": "poetry run toml-sort pyproject.toml --in-place --all",
+    "types": "poetry run pyaud typecheck"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jshwi/templatest.git"
-  },
-  "keywords": [
-    "python3.8",
-    "git",
-    "commandline",
-    "wrapper",
-    "script",
-    "tree"
-  ],
-  "author": "Stephen Whitlock",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/jshwi/templatest/issues"
-  },
-  "homepage": "https://jshwi.github.io/templatest/",
-  "devDependencies": {
-    "npm-run-all": "^4.1.5",
-    "prettier": "^2.5.1"
-  }
+  "version": "0.7.0"
 }
