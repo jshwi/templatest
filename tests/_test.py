@@ -11,6 +11,9 @@ import templatest
 from templatest.utils import VarSeq
 
 from . import (
+    ERROR,
+    MULTI,
+    TEST,
     TEST_CLASS_NAME,
     TEST_ERR_CLASS_NAME,
     TEST_ERR_INST_NAME,
@@ -156,7 +159,7 @@ def test_get_group(register_templates: RegisterTemplatesType) -> None:
         (TEST_ERR_CLASS_NAME[1],),
         (TEST_ERR_CLASS_NAME[2],),
     )
-    assert templatest.templates.registered.getgroup("err").getids() == (
+    assert templatest.templates.registered.getgroup(ERROR).getids() == (
         TEST_ERR_INST_NAME[0],
         TEST_ERR_INST_NAME[1],
         TEST_ERR_INST_NAME[2],
@@ -177,7 +180,7 @@ def test_filter_group(register_templates: RegisterTemplatesType) -> None:
         (TEST_ERR_CLASS_NAME[1],),
         (TEST_ERR_CLASS_NAME[2],),
     )
-    assert templatest.templates.registered.filtergroup("err").getids() == (
+    assert templatest.templates.registered.filtergroup(ERROR).getids() == (
         TEST_INST_NAME[0],
         TEST_INST_NAME[1],
         TEST_INST_NAME[2],
@@ -231,20 +234,20 @@ def test_get_by_name(register_templates: RegisterTemplatesType) -> None:
 @pytest.mark.parametrize(
     "arg_1,expected_1",
     [
-        ("test", TEST_INST_NAME),
-        ("err", TEST_ERR_INST_NAME),
-        ("multi", TEST_MULTI_INST_NAME),
+        (TEST, TEST_INST_NAME),
+        (ERROR, TEST_ERR_INST_NAME),
+        (MULTI, TEST_MULTI_INST_NAME),
     ],
-    ids=["test", "err", "multi"],
+    ids=[TEST, ERROR, MULTI],
 )
 @pytest.mark.parametrize(
     "arg_2,expected_2",
     [
-        ("test", TEST_INST_NAME),
-        ("err", TEST_ERR_INST_NAME),
-        ("multi", TEST_MULTI_INST_NAME),
+        (TEST, TEST_INST_NAME),
+        (ERROR, TEST_ERR_INST_NAME),
+        (MULTI, TEST_MULTI_INST_NAME),
     ],
-    ids=["test", "err", "multi"],
+    ids=[TEST, ERROR, MULTI],
 )
 def test_get_groups(
     register_templates: RegisterTemplatesType,
@@ -288,20 +291,20 @@ def test_get_groups(
 @pytest.mark.parametrize(
     "arg_1,expected_1",
     [
-        ("test", TEST_INST_NAME),
-        ("err", TEST_ERR_INST_NAME),
-        ("multi", TEST_MULTI_INST_NAME),
+        (TEST, TEST_INST_NAME),
+        (ERROR, TEST_ERR_INST_NAME),
+        (MULTI, TEST_MULTI_INST_NAME),
     ],
-    ids=["test", "err", "multi"],
+    ids=[TEST, ERROR, MULTI],
 )
 @pytest.mark.parametrize(
     "arg_2,expected_2",
     [
-        ("test", TEST_INST_NAME),
-        ("err", TEST_ERR_INST_NAME),
-        ("multi", TEST_MULTI_INST_NAME),
+        (TEST, TEST_INST_NAME),
+        (ERROR, TEST_ERR_INST_NAME),
+        (MULTI, TEST_MULTI_INST_NAME),
     ],
-    ids=["test", "err", "multi"],
+    ids=[TEST, ERROR, MULTI],
 )
 def test_filter_groups(
     register_templates: RegisterTemplatesType,
