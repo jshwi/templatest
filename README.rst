@@ -1,29 +1,35 @@
 templatest
 ==========
-.. image:: https://github.com/jshwi/templatest/workflows/ci/badge.svg
-    :target: https://github.com/jshwi/templatest/workflows/ci/badge.svg
-    :alt: ci
+.. image:: https://img.shields.io/badge/License-MIT-yellow.svg
+    :target: https://opensource.org/licenses/MIT
+    :alt: License
+.. image:: https://img.shields.io/pypi/v/templatest
+    :target: https://pypi.org/project/templatest/
+    :alt: PyPI
+.. image:: https://github.com/jshwi/templatest/actions/workflows/ci.yml/badge.svg
+    :target: https://github.com/jshwi/templatest/actions/workflows/ci.yml
+    :alt: CI
+.. image:: https://results.pre-commit.ci/badge/github/jshwi/templatest/master.svg
+   :target: https://results.pre-commit.ci/latest/github/jshwi/templatest/master
+   :alt: pre-commit.ci status
 .. image:: https://github.com/jshwi/templatest/actions/workflows/codeql-analysis.yml/badge.svg
     :target: https://github.com/jshwi/templatest/actions/workflows/codeql-analysis.yml
     :alt: CodeQL
+.. image:: https://codecov.io/gh/jshwi/templatest/branch/master/graph/badge.svg
+    :target: https://codecov.io/gh/jshwi/templatest
+    :alt: codecov.io
 .. image:: https://readthedocs.org/projects/templatest/badge/?version=latest
     :target: https://templatest.readthedocs.io/en/latest/?badge=latest
     :alt: readthedocs.org
 .. image:: https://img.shields.io/badge/python-3.8-blue.svg
     :target: https://www.python.org/downloads/release/python-380
     :alt: python3.8
-.. image:: https://img.shields.io/pypi/v/templatest
-    :target: https://img.shields.io/pypi/v/templatest
-    :alt: pypi
-.. image:: https://codecov.io/gh/jshwi/templatest/branch/master/graph/badge.svg
-    :target: https://codecov.io/gh/jshwi/templatest
-    :alt: codecov.io
-.. image:: https://img.shields.io/badge/License-MIT-blue.svg
-    :target: https://lbesson.mit-license.org/
-    :alt: mit
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
     :target: https://github.com/psf/black
-    :alt: black
+    :alt: Black
+.. image:: https://img.shields.io/badge/linting-pylint-yellowgreen
+    :target: https://github.com/PyCQA/pylint
+    :alt: pylint
 
 Templates for testing with strings
 ----------------------------------
