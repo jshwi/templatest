@@ -142,6 +142,7 @@ class VarPrefix:
     """Get string with prefix.
 
     :param prefix: String to prefix attribute with.
+    :param slug: Separator between words.
 
     :example:
 
