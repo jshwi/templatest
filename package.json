@@ -14,12 +14,11 @@
   },
   "homepage": "https://jshwi.github.io/templatest/",
   "keywords": [
-    "python3.8",
-    "git",
-    "commandline",
-    "wrapper",
-    "script",
-    "tree"
+    "template",
+    "pytest",
+    "unittest",
+    "strings",
+    "expected"
   ],
   "license": "MIT",
   "name": "templatest",
@@ -36,6 +35,7 @@
     "bump:minor": "poetry run bump2version minor",
     "bump:patch": "poetry run bump2version patch",
     "clean": "poetry run pyaud clean",
+    "const": "poetry run pyaud const",
     "format": "npm-run-all format:*",
     "format:misc": "prettier -w .",
     "format:py": "npm-run-all format:py:*",
@@ -43,11 +43,13 @@
     "format:py:docs": "poetry run pyaud format-docs",
     "format:py:str": "poetry run pyaud format-str",
     "lint": "poetry run pyaud lint",
-    "test": "npm-run-all test:**",
-    "test:doctest:package": "poetry run sphinx-build -M doctest docs/ docs/_build",
-    "test:doctest:readme": "poetry run python -m doctest README.rst",
+    "params": "poetry run pyaud params",
+    "test": "poetry run pyaud test",
+    "test:doctest": "poetry run pyaud doctest",
+    "test:doctest:package": "poetry run pyaud doctest-package",
+    "test:doctest:readme": "poetry run pyaud doctest-readme",
     "test:unit": "poetry run pyaud tests",
-    "toml:sort": "poetry run toml-sort pyproject.toml --in-place --all",
+    "toml:sort": "poetry run pyaud sort-pyproject",
     "types": "poetry run pyaud typecheck"
   },
   "version": "0.7.0"
