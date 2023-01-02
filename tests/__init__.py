@@ -19,6 +19,7 @@ TEST_MULTI_INST_NAME = VarSeq("multi-test-template", suffix="-")
 MULTI = "multi"
 TEST = "test"
 ERROR = "err"
+VERSION = "0.1.0"
 
 RegisterTemplatesType = t.Callable[..., None]
 

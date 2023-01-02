@@ -20,6 +20,7 @@ from . import (
     TEST_INST_NAME,
     TEST_MULTI_CLASS_NAME,
     TEST_MULTI_INST_NAME,
+    VERSION,
     RegisterTemplatesType,
     RegisterTemplateType,
 )
@@ -343,3 +344,12 @@ def test_filter_groups(
     assert expected_2[0] not in group
     assert expected_2[1] not in group
     assert expected_2[2] not in group
+
+
+def test_version(monkeypatch: pytest.MonkeyPatch) -> None:
+    """Test ``templatest.__version__``.
+
+    :param monkeypatch: Mock patch environment and attributes.
+    """
+    monkeypatch.setattr("templatest.__version__", VERSION)
+    assert templatest.__version__ == VERSION
