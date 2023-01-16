@@ -30,6 +30,9 @@ templatest
 .. image:: https://img.shields.io/badge/linting-pylint-yellowgreen
     :target: https://github.com/PyCQA/pylint
     :alt: pylint
+.. image:: https://snyk.io/test/github/jshwi/templatest/badge.svg
+    :target: https://snyk.io/test/github/jshwi/templatest/badge.svg
+    :alt: Known Vulnerabilities
 
 Templates for testing with strings
 ----------------------------------
