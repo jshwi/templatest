@@ -76,14 +76,14 @@ files = [
 
 [[package]]
 name = "arcon"
-version = "0.2.0"
+version = "0.2.1"
 description = "Persistent runtime config"
 category = "dev"
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "arcon-0.2.0-py3-none-any.whl", hash = "sha256:22595701c160f784a68ced12709d44cd943fd166c479d16830da7929b16d7de4"},
-    {file = "arcon-0.2.0.tar.gz", hash = "sha256:9958e6d54fb71e09973e12935d1dd90a58665decb9f7dc78c7aa1fa6e026a506"},
+    {file = "arcon-0.2.1-py3-none-any.whl", hash = "sha256:666feb8ca37b4d4d9ee42c54232630e289e07d2b337be5f51fe21e026b182d60"},
+    {file = "arcon-0.2.1.tar.gz", hash = "sha256:2497152cce25203ee7cbce4ad24bb214b4491e94de2c842c42e3930b3be50df6"},
 ]
 
 [package.dependencies]
@@ -735,19 +735,34 @@ astor = "*"
 tomli = ">=1.1.0"
 
 [[package]]
-name = "gitspy"
-version = "0.3.0"
-description = "Intuitive Git for Python"
+name = "gitdb"
+version = "4.0.10"
+description = "Git Object Database"
 category = "dev"
 optional = false
-python-versions = ">=3.8,<4.0"
+python-versions = ">=3.7"
 files = [
-    {file = "gitspy-0.3.0-py3-none-any.whl", hash = "sha256:8ca2e79c39d95d1a374d35bd3f31741fec168884fb58243adda65ea4bdfbe13d"},
-    {file = "gitspy-0.3.0.tar.gz", hash = "sha256:74e582d2f13001f61133e02c5ceb252a1511d3859cfdff16637e50ba0f3091bd"},
+    {file = "gitdb-4.0.10-py3-none-any.whl", hash = "sha256:c286cf298426064079ed96a9e4a9d39e7f3e9bf15ba60701e95f5492f28415c7"},
+    {file = "gitdb-4.0.10.tar.gz", hash = "sha256:6eb990b69df4e15bad899ea868dc46572c3f75339735663b81de79b06f17eb9a"},
 ]
 
 [package.dependencies]
-spall = ">=0,<1"
+smmap = ">=3.0.1,<6"
+
+[[package]]
+name = "gitpython"
+version = "3.1.31"
+description = "GitPython is a Python library used to interact with Git repositories"
+category = "dev"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "GitPython-3.1.31-py3-none-any.whl", hash = "sha256:f04893614f6aa713a60cbbe1e6a97403ef633103cdd0ef5eb6efe0deb98dbe8d"},
+    {file = "GitPython-3.1.31.tar.gz", hash = "sha256:8ce3bcf69adfdf7c7d503e78fd3b1c492af782d58893b650adb2ac8912ddd573"},
+]
+
+[package.dependencies]
+gitdb = ">=4.0.1,<5"
 
 [[package]]
 name = "handy-archives"
@@ -764,6 +779,18 @@ files = [
 [package.extras]
 all = ["coincidence (>=0.2.0)", "pytest (>=6.0.0)"]
 testing = ["coincidence (>=0.2.0)", "pytest (>=6.0.0)"]
+
+[[package]]
+name = "html2text"
+version = "2020.1.16"
+description = "Turn HTML into equivalent Markdown-structured text."
+category = "dev"
+optional = false
+python-versions = ">=3.5"
+files = [
+    {file = "html2text-2020.1.16-py3-none-any.whl", hash = "sha256:c7c629882da0cf377d66f073329ccf34a12ed2adf0169b9285ae4e63ef54c82b"},
+    {file = "html2text-2020.1.16.tar.gz", hash = "sha256:e296318e16b059ddb97f7a8a1d6a5c1d7af4544049a01e261731d2d5cc277bbb"},
+]
 
 [[package]]
 name = "html5lib"
@@ -1013,18 +1040,18 @@ files = [
 
 [[package]]
 name = "lsfiles"
-version = "0.2.0"
+version = "0.5.0"
 description = "Path object VC index"
 category = "dev"
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "lsfiles-0.2.0-py3-none-any.whl", hash = "sha256:19760e5d9ff0f0f64c53efac57895297c934de3ca45e7096af09777be8dee079"},
-    {file = "lsfiles-0.2.0.tar.gz", hash = "sha256:175e820110d245e4b0b2519a24802e3c6bcd3d818e5531a2ed3fbce6cf0b723a"},
+    {file = "lsfiles-0.5.0-py3-none-any.whl", hash = "sha256:374283b331ce8188ad47fd3241aba1365d9aab245a5210289a1c70be262f5bc5"},
+    {file = "lsfiles-0.5.0.tar.gz", hash = "sha256:81f5fa7695a1017aadc43dd7c5f7e0d4db86822f5ba5ce77dd30ddc3d9d7b048"},
 ]
 
 [package.dependencies]
-gitspy = ">=0,<1"
+gitpython = ">=3.1.31,<4.0.0"
 
 [[package]]
 name = "MarkupSafe"
@@ -1495,42 +1522,39 @@ tests = ["pytest"]
 
 [[package]]
 name = "pyaud"
-version = "4.1.0"
+version = "6.1.2"
 description = "Framework for writing Python package audits"
 category = "dev"
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "pyaud-4.1.0-py3-none-any.whl", hash = "sha256:3fdc5f39cd92913238578b16b218ffb006703cb17ff8a30c6bf8af076ea98b73"},
-    {file = "pyaud-4.1.0.tar.gz", hash = "sha256:a4853644ec3fe502515d5ee0b77951ca1d0c8e2dc67dd94370018ecca3718a7f"},
+    {file = "pyaud-6.1.2-py3-none-any.whl", hash = "sha256:14d8e327b1b158f19fc696f6acb6bc0938285d4b7e5e895541ed0d11189154ea"},
+    {file = "pyaud-6.1.2.tar.gz", hash = "sha256:768328617c8a02cfad4804bf8c3b6e9e39795e7000eb2a46df48c5d1b313793a"},
 ]
 
 [package.dependencies]
-appdirs = ">=1.4.4,<2.0.0"
-environs = ">=9.4.0,<10.0.0"
-gitspy = ">=0,<1"
-lsfiles = ">=0,<1"
+arcon = ">=0.2.1,<0.3.0"
+gitpython = ">=3.1.30,<4.0.0"
+lsfiles = ">=0.5"
 object-colors = ">=2.0.1,<3.0.0"
-pyaud-plugins = ">=0.8"
+pyaud-plugins = ">=0.13.3"
 spall = ">=0,<1"
-tomli = ">=2.0.1,<3.0.0"
-tomli-w = ">=1.0.0,<2.0.0"
 
 [[package]]
 name = "pyaud-plugins"
-version = "0.10.0"
+version = "0.13.3"
 description = "Plugin package for Pyaud"
 category = "dev"
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "pyaud-plugins-0.10.0.tar.gz", hash = "sha256:b196cd83e064a4151738c0a18f94b595564de095985fbcb3133954cffdf61ec8"},
-    {file = "pyaud_plugins-0.10.0-py3-none-any.whl", hash = "sha256:67ef682b5809d9cf7e7a65635fefcaf395ff748916a1e1cf028707719baf65cc"},
+    {file = "pyaud_plugins-0.13.3-py3-none-any.whl", hash = "sha256:4391231a1fd9f915a5ff078be8e09137a69c16af35494b57eafa1224e18008ad"},
+    {file = "pyaud_plugins-0.13.3.tar.gz", hash = "sha256:18ed35b87e653b3042e1716909961dcfba1ddb9537d639a9538a0cb3d93b14ae"},
 ]
 
 [package.dependencies]
 appdirs = ">=1.4.4,<2.0.0"
-black = ">=21.12,<23.0"
+black = ">=21.12,<24.0"
 codecov = ">=2.1.12,<3.0.0"
 constcheck = ">=0,<1"
 coverage = ">=6.2,<8.0"
@@ -1538,22 +1562,42 @@ docformatter = ">=1.4,<2.0"
 docsig = ">=0,<1"
 environs = ">=9.4.0,<10.0.0"
 flynt = ">=0.75,<0.77"
-gitspy = ">=0,<1"
+gitpython = ">=3.1.30,<4.0.0"
 isort = ">=5.10.1,<6.0.0"
-mypy = ">=0.930,<0.992"
+mypy = ">=0.930,<1.1"
 object-colors = ">=2.0.1,<3.0.0"
 pipfile-requirements = ">=0.3.0,<0.4.0"
+pyaud = ">=5.0.1,<7.0.0"
 pylint = ">=2.12.2,<3.0.0"
 pytest = ">=7.2.0,<8.0.0"
 pytest-cov = ">=3,<5"
-python-dotenv = ">=0.19.2,<0.21.0"
+python-dotenv = ">=0.19.2,<1.1.0"
+pyyaml = ">=6.0,<7.0"
 readmetester = ">=1.0.1,<3.0.0"
-Sphinx = ">=4.3.2,<5.0.0"
+setuptools = ">=67.2.0,<68.0.0"
+Sphinx = ">=4.3.2,<7.0.0"
+sphinx-markdown-builder = ">=0.5.5,<0.6.0"
 sphinxcontrib-fulltoc = ">=1.2.0,<2.0.0"
 sphinxcontrib-programoutput = ">=0.17,<0.18"
 toml = ">=0.10.2,<0.11.0"
 toml-sort = ">=0.20,<0.23"
+tomli = ">=2.0.1,<3.0.0"
 vulture = ">=2.3,<3.0"
+
+[[package]]
+name = "pydash"
+version = "6.0.2"
+description = "The kitchen sink of Python utility libraries for doing \"stuff\" in a functional way. Based on the Lo-Dash Javascript library."
+category = "dev"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "pydash-6.0.2-py3-none-any.whl", hash = "sha256:6d3ce5cbbc8ca3533c12782ac201c2ec756d1e1703ec3efc88f2b95d1ed2bb31"},
+    {file = "pydash-6.0.2.tar.gz", hash = "sha256:35caa588e01d293713655e0870544d25128cd414c5e19477a0d63adc2b2ca03e"},
+]
+
+[package.extras]
+dev = ["Sphinx", "black", "build", "coverage", "docformatter", "flake8", "flake8-black", "flake8-bugbear", "flake8-isort", "importlib-metadata (<5)", "invoke", "isort", "pylint", "pytest", "pytest-cov", "sphinx-rtd-theme", "tox", "twine", "wheel"]
 
 [[package]]
 name = "Pygments"
@@ -1920,14 +1964,14 @@ files = [
 
 [[package]]
 name = "setuptools"
-version = "66.1.1"
+version = "67.4.0"
 description = "Easily download, build, install, upgrade, and uninstall Python packages"
 category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "setuptools-66.1.1-py3-none-any.whl", hash = "sha256:6f590d76b713d5de4e49fe4fbca24474469f53c83632d5d0fd056f7ff7e8112b"},
-    {file = "setuptools-66.1.1.tar.gz", hash = "sha256:ac4008d396bc9cd983ea483cb7139c0240a07bbc74ffb6232fceffedc6cf03a8"},
+    {file = "setuptools-67.4.0-py3-none-any.whl", hash = "sha256:f106dee1b506dee5102cc3f3e9e68137bbad6d47b616be7991714b0c62204251"},
+    {file = "setuptools-67.4.0.tar.gz", hash = "sha256:e5fd0a713141a4a105412233c63dc4e17ba0090c8e8334594ac790ec97792330"},
 ]
 
 [package.extras]
@@ -1966,6 +2010,18 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
 files = [
     {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
     {file = "six-1.16.0.tar.gz", hash = "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"},
+]
+
+[[package]]
+name = "smmap"
+version = "5.0.0"
+description = "A pure Python implementation of a sliding window memory map manager"
+category = "dev"
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "smmap-5.0.0-py3-none-any.whl", hash = "sha256:2aba19d6a040e78d8b09de5c57e96207b09ed71d8e55ce0959eeee6c8e190d94"},
+    {file = "smmap-5.0.0.tar.gz", hash = "sha256:c840e62059cd3be204b0c9c9f74be2c09d5648eddd4580d9314c3ecde0b30936"},
 ]
 
 [[package]]
@@ -2074,6 +2130,25 @@ files = [
 [package.dependencies]
 jinja2 = ">=2.10"
 markupsafe = ">=1"
+
+[[package]]
+name = "sphinx-markdown-builder"
+version = "0.5.5"
+description = "sphinx builder that outputs markdown files"
+category = "dev"
+optional = false
+python-versions = "*"
+files = [
+    {file = "sphinx-markdown-builder-0.5.5.tar.gz", hash = "sha256:6ead53c08d8835329e32418dcdbac4db710a1c4e5e8db687d23b9e88882d9d16"},
+    {file = "sphinx_markdown_builder-0.5.5-py2.py3-none-any.whl", hash = "sha256:3c8909579dfa83ce5a8fb48e2d01dc257fc0676931170cb92cd528f9fceee76f"},
+]
+
+[package.dependencies]
+html2text = "*"
+pydash = "*"
+sphinx = "*"
+unify = "*"
+yapf = "*"
 
 [[package]]
 name = "sphinx-prompt"
@@ -2343,18 +2418,6 @@ files = [
 ]
 
 [[package]]
-name = "tomli-w"
-version = "1.0.0"
-description = "A lil' TOML writer"
-category = "dev"
-optional = false
-python-versions = ">=3.7"
-files = [
-    {file = "tomli_w-1.0.0-py3-none-any.whl", hash = "sha256:9f2a07e8be30a0729e533ec968016807069991ae2fd921a78d42f429ae5f4463"},
-    {file = "tomli_w-1.0.0.tar.gz", hash = "sha256:f463434305e0336248cac9c2dc8076b707d8a12d019dd349f5c1e382dd1ae1b9"},
-]
-
-[[package]]
 name = "tomlkit"
 version = "0.11.6"
 description = "Style preserving TOML library"
@@ -2393,6 +2456,20 @@ files = [
     {file = "typing_extensions-4.4.0-py3-none-any.whl", hash = "sha256:16fa4864408f655d35ec496218b85f79b3437c829e93320c7c9215ccfd92489e"},
     {file = "typing_extensions-4.4.0.tar.gz", hash = "sha256:1511434bb92bf8dd198c12b1cc812e800d4181cfcb867674e0f8279cc93087aa"},
 ]
+
+[[package]]
+name = "unify"
+version = "0.5"
+description = "Modifies strings to all use the same (single/double) quote where possible."
+category = "dev"
+optional = false
+python-versions = "*"
+files = [
+    {file = "unify-0.5.tar.gz", hash = "sha256:8ddce812b2457212b7598fe574c9e6eb3ad69710f445391338270c7f8a71723c"},
+]
+
+[package.dependencies]
+untokenize = "*"
 
 [[package]]
 name = "untokenize"
@@ -2557,6 +2634,18 @@ files = [
 ]
 
 [[package]]
+name = "yapf"
+version = "0.32.0"
+description = "A formatter for Python code."
+category = "dev"
+optional = false
+python-versions = "*"
+files = [
+    {file = "yapf-0.32.0-py2.py3-none-any.whl", hash = "sha256:8fea849025584e486fd06d6ba2bed717f396080fd3cc236ba10cb97c4c51cf32"},
+    {file = "yapf-0.32.0.tar.gz", hash = "sha256:a3f5085d37ef7e3e004c4ba9f9b3e40c54ff1901cd111f05145ae313a7c67d1b"},
+]
+
+[[package]]
 name = "zipp"
 version = "3.11.0"
 description = "Backport of pathlib-compatible object wrapper for zip files"
@@ -2575,4 +2664,4 @@ testing = ["flake8 (<5)", "func-timeout", "jaraco.functools", "jaraco.itertools"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "6237c187c46ffc37f89f0b4d541d99225aa5b9b2509514eaf8423f89b988462e"
+content-hash = "92943730f826d85b3d404d11ec7a4be1dfc483e861e9df896c16bbe04809f760"
