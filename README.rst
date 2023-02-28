@@ -6,9 +6,9 @@ templatest
 .. image:: https://img.shields.io/pypi/v/templatest
     :target: https://pypi.org/project/templatest/
     :alt: PyPI
-.. image:: https://github.com/jshwi/templatest/actions/workflows/ci.yml/badge.svg
-    :target: https://github.com/jshwi/templatest/actions/workflows/ci.yml
-    :alt: CI
+.. image:: https://github.com/jshwi/templatest/actions/workflows/build.yaml/badge.svg
+    :target: https://github.com/jshwi/templatest/actions/workflows/build.yaml
+    :alt: Build
 .. image:: https://results.pre-commit.ci/badge/github/jshwi/templatest/master.svg
    :target: https://results.pre-commit.ci/latest/github/jshwi/templatest/master
    :alt: pre-commit.ci status
