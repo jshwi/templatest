@@ -11,7 +11,7 @@ This file is auto-generated and any changes made to it will be overwritten
 Test `Templates.filtergroup` method.
 
 
-### Filter groups(register templates: callable[[...], none], arg 1: str, arg 2: str, expected 1: [varseq](templatest.md#templatest.utils.varseq), expected 2: [varseq]
+### Filter groups
 
 Test `Templates.filtergroup` method with multiple args.
 
@@ -26,7 +26,7 @@ Test `Templates.getbyname()` method.
 Test `Templates.getgroup` method.
 
 
-### Get groups(register templates: callable[[...], none], arg 1: str, arg 2: str, expected 1: [varseq](templatest.md#templatest.utils.varseq), expected 2: [varseq]
+### Get groups
 
 Test `Templates.getgroup` method with multiple args.
 
