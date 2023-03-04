@@ -43,8 +43,8 @@ templatest
     :target: https://snyk.io/test/github/jshwi/templatest/badge.svg
     :alt: Known Vulnerabilities
 .. image:: https://snyk.io/advisor/python/templatest/badge.svg
-  :target: https://snyk.io/advisor/python/templatest
-  :alt: templatest
+    :target: https://snyk.io/advisor/python/templatest
+    :alt: templatest
 
 Templates for testing with strings
 ----------------------------------
