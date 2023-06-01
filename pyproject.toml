@@ -82,7 +82,7 @@ pytest = "^7.2.0"
 pytest-randomly = "^3.12.0"
 pytest-sugar = "^0.9.6"
 restview = "^3.0.0"
-sphinx-immaterial = "^0.11.3"
+sphinx-immaterial = "^0.11.4"
 sphinx-toolbox = "^3.2.0"
 
 [tool.pyaud]
