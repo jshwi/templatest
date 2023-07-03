@@ -82,7 +82,6 @@ html_theme_options = {
     "site_url": "https://templatest.readthedocs.io/",
     "repo_url": "https://github.com/jshwi/templatest/",
     "repo_name": "templatest",
-    "repo_type": "github",
     "edit_uri": "blob/master/docs",
     "globaltoc_collapse": True,
     "features": [
