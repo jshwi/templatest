@@ -18,9 +18,6 @@ templatest
 .. image:: https://codecov.io/gh/jshwi/templatest/branch/master/graph/badge.svg
     :target: https://codecov.io/gh/jshwi/templatest
     :alt: codecov.io
-.. image:: https://readthedocs.org/projects/templatest/badge/?version=latest
-    :target: https://templatest.readthedocs.io/en/latest/?badge=latest
-    :alt: readthedocs.org
 .. image:: https://img.shields.io/badge/python-3.8-blue.svg
     :target: https://www.python.org/downloads/release/python-380
     :alt: python3.8
