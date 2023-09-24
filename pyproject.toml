@@ -87,6 +87,7 @@ toml-sort = "^0.20.1"
 
 [tool.pyaud]
 audit = [
+  "about-tests",
   "const",
   "docs",
   "files",
