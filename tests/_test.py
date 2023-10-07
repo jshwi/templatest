@@ -353,3 +353,30 @@ def test_version(monkeypatch: pytest.MonkeyPatch) -> None:
     """
     monkeypatch.setattr("templatest.__version__", VERSION)
     assert templatest.__version__ == VERSION
+
+
+def test_pos_args() -> None:
+    """Test ``PosArgs``."""
+    path = VarSeq("path")
+    with pytest.raises(NotImplementedError) as err1:
+        templatest.utils.PosArgs("arg")
+
+    with pytest.raises(NotImplementedError) as err2:
+        templatest.utils.PosArgs(templatest.utils.PosArgs())
+
+    args = templatest.utils.PosArgs()
+    assert str(err1.value) == "constructor cannot take args directly"
+    assert str(err2.value) == "constructor cannot take args directly"
+    assert args.path_1 == [path[1]]
+    assert args.path_1.path_2 == [path[1], path[2]]
+    assert args.path_1.path_2.path_3 == [path[1], path[2], path[3]]
+    assert args.path_1.path_2 == [path[1], path[2]]
+    assert args.path_1 == [path[1]]
+    assert args.path_1 == [path[1]]
+    assert args.path_1.path_4 == [path[1], path[4]]
+    assert args.path_1.path_4.path_5 == [path[1], path[4], path[5]]
+    assert args.path_1.path_4 == [path[1], path[4]]
+    assert args.path_1 == [path[1]]
+    assert args.path_2 == [path[2]]
+    assert args.path_2.path_3 == [path[2], path[3]]
+    assert args.path_2.path_3.path_4 == [path[2], path[3], path[4]]

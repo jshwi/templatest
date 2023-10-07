@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 [Unreleased](https://github.com/jshwi/templatest/compare/v0.8.0...HEAD)
 ------------------------------------------------------------------------
+### Added
+- add `templatest.utils.PosArgs`
 
 [0.8.0](https://github.com/jshwi/templatest/releases/tag/v0.8.0) - 2023-01-04
 ------------------------------------------------------------------------

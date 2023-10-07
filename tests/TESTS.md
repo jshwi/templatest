@@ -52,6 +52,11 @@ Test registering a [`templatest.BaseTemplate`](templatest.md#templatest.BaseTemp
 conflict.
 
 
+### Pos args
+
+Test `PosArgs`.
+
+
 ### Rand str len seq
 
 Test `RandStrLenSeq`.

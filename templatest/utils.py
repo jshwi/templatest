@@ -183,3 +183,72 @@ class VarPrefix:
                 self.__setattr__(
                     item, f"{self._prefix}{item.replace('_', self._slug)}"
                 )
+
+
+class PosArgs(_t.List[str]):
+    """Get chain of strings as a list to represent positional arguments.
+
+    :example:
+
+        >>> from templatest.utils import PosArgs
+        >>> args = PosArgs('arg')
+        Traceback (most recent call last):
+        ...
+        NotImplementedError: constructor cannot take args directly
+        >>> other_args = PosArgs()
+        >>> args = PosArgs(other_args)
+        Traceback (most recent call last):
+        ...
+        NotImplementedError: constructor cannot take args directly
+        >>> args = PosArgs()
+        >>> args.path
+        ['path']
+        >>> args.path.to
+        ['path', 'to']
+        >>> args.path.to.another
+        ['path', 'to', 'another']
+        >>> args.path.to.another.path
+        ['path', 'to', 'another', 'path']
+        >>> args.path.to.another
+        ['path', 'to', 'another']
+        >>> args.path.to
+        ['path', 'to']
+        >>> args.path
+        ['path']
+        >>> args.path.another
+        ['path', 'another']
+        >>> args.path.another.new
+        ['path', 'another', 'new']
+        >>> args.path.another.new.path
+        ['path', 'another', 'new', 'path']
+        >>> args.src
+        ['src']
+        >>> args.src.to
+        ['src', 'to']
+        >>> args.src.to.another
+        ['src', 'to', 'another']
+        >>> args.src.to.another.path
+        ['src', 'to', 'another', 'path']
+
+    :param args: Args passed to child classes, not to be used to
+        directly.
+    """
+
+    __constructor__ = True
+
+    def __init__(self, args: _t.Any = None) -> None:
+        self._isparent = True
+        if isinstance(args, PosArgs) and not self.__constructor__:
+            self._isparent = False
+            super().__init__(args)
+        elif args is not None:
+            raise NotImplementedError("constructor cannot take args directly")
+
+    def __getattr__(self, item):
+        if self._isparent:
+            self.clear()
+
+        self.append(item)
+        cls = self.__class__
+        cls.__constructor__ = False
+        return cls(self)
