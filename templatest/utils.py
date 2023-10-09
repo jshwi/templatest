@@ -10,6 +10,8 @@ import random as _random
 import string as _string
 import typing as _t
 
+from typing_extensions import Self
+
 from ._abc import MutableStrSequence as _MutableStrSequence
 
 ALPHA = tuple(_string.ascii_uppercase)
@@ -244,7 +246,7 @@ class PosArgs(_t.List[str]):
         elif args is not None:
             raise NotImplementedError("constructor cannot take args directly")
 
-    def __getattr__(self, item):
+    def __getattr__(self, item: str) -> Self:
         if self._isparent:
             self.clear()
 
