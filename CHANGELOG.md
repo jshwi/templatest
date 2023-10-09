@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 [Unreleased](https://github.com/jshwi/templatest/compare/v0.9.0...HEAD)
 ------------------------------------------------------------------------
+### Added
+- add callable to `PosArgs` for optional positional args
 
 [0.9.0](https://github.com/jshwi/templatest/releases/tag/v0.9.0) - 2023-10-07
 ------------------------------------------------------------------------

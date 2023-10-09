@@ -368,6 +368,8 @@ def test_pos_args() -> None:
     assert str(err1.value) == "constructor cannot take args directly"
     assert str(err2.value) == "constructor cannot take args directly"
     assert args.path_1 == [path[1]]
+    assert args("") == []
+    assert args(path[1]) == [path[1]]
     assert args.path_1.path_2 == [path[1], path[2]]
     assert args.path_1.path_2.path_3 == [path[1], path[2], path[3]]
     assert args.path_1.path_2 == [path[1], path[2]]
@@ -380,3 +382,23 @@ def test_pos_args() -> None:
     assert args.path_2 == [path[2]]
     assert args.path_2.path_3 == [path[2], path[3]]
     assert args.path_2.path_3.path_4 == [path[2], path[3], path[4]]
+    assert args.path_2.path_3.path_4("") == [path[2], path[3], path[4]]
+    assert args.path_2.path_3.path_4("").path_5 == [
+        path[2],
+        path[3],
+        path[4],
+        path[5],
+    ]
+    assert args.path_2.path_3.path_4(path[5]) == [
+        path[2],
+        path[3],
+        path[4],
+        path[5],
+    ]
+    assert args.path_2.path_3.path_4(path[5]).path_6 == [
+        path[2],
+        path[3],
+        path[4],
+        path[5],
+        path[6],
+    ]

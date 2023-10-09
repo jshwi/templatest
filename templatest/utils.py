@@ -205,6 +205,10 @@ class PosArgs(_t.List[str]):
         >>> args = PosArgs()
         >>> args.path
         ['path']
+        >>> args("")
+        []
+        >>> args("path")
+        ['path']
         >>> args.path.to
         ['path', 'to']
         >>> args.path.to.another
@@ -231,6 +235,12 @@ class PosArgs(_t.List[str]):
         ['src', 'to', 'another']
         >>> args.src.to.another.path
         ['src', 'to', 'another', 'path']
+        >>> args.src.to.another.path("")
+        ['src', 'to', 'another', 'path']
+        >>> args.src.to.another.path("opt")
+        ['src', 'to', 'another', 'path', 'opt']
+        >>> args.src.to.another.path("opt").another
+        ['src', 'to', 'another', 'path', 'opt', 'another']
 
     :param args: Args passed to child classes, not to be used to
         directly.
@@ -256,3 +266,7 @@ class PosArgs(_t.List[str]):
         cls = self.__class__
         cls.__constructor__ = False
         return cls(self)
+
+    def __call__(self, arg: str) -> Self:
+        self._clear_parent()
+        return getattr(self, arg) if arg else self
