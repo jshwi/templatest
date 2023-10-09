@@ -246,10 +246,12 @@ class PosArgs(_t.List[str]):
         elif args is not None:
             raise NotImplementedError("constructor cannot take args directly")
 
-    def __getattr__(self, item: str) -> Self:
+    def _clear_parent(self) -> None:
         if self._isparent:
             self.clear()
 
+    def __getattr__(self, item: str) -> Self:
+        self._clear_parent()
         self.append(item)
         cls = self.__class__
         cls.__constructor__ = False
