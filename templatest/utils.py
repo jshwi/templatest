@@ -191,7 +191,7 @@ class PosArgs(_t.List[str]):
     """Get chain of strings as a list to represent positional arguments.
 
     :example:
-
+        >>> from pathlib import Path
         >>> from templatest.utils import PosArgs
         >>> args = PosArgs('arg')
         Traceback (most recent call last):
@@ -241,6 +241,9 @@ class PosArgs(_t.List[str]):
         ['src', 'to', 'another', 'path', 'opt']
         >>> args.src.to.another.path("opt").another
         ['src', 'to', 'another', 'path', 'opt', 'another']
+        >>> path = Path("/tmp")
+        >>> args(path)
+        ['/tmp']
 
     :param args: Args passed to child classes, not to be used to
         directly.
@@ -267,6 +270,6 @@ class PosArgs(_t.List[str]):
         cls.__constructor__ = False
         return cls(self)
 
-    def __call__(self, arg: str) -> Self:
+    def __call__(self, arg: _t.Any) -> Self:
         self._clear_parent()
-        return getattr(self, arg) if arg else self
+        return getattr(self, str(arg)) if arg else self

@@ -4,6 +4,7 @@ tests
 """
 # pylint: disable=protected-access
 import typing as t
+from pathlib import Path
 
 import pytest
 
@@ -402,3 +403,5 @@ def test_pos_args() -> None:
         path[5],
         path[6],
     ]
+    path_obj = Path("/tmp")
+    assert args(path_obj) == ["/tmp"]
