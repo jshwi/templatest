@@ -2,6 +2,7 @@
 tests
 =====
 """
+
 # pylint: disable=too-few-public-methods
 from __future__ import annotations
 

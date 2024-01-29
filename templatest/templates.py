@@ -4,6 +4,7 @@ templatest.templates
 
 Registration and usage of template subclasses.
 """
+
 import typing as _t
 
 from ._abc import BaseTemplate as _BaseTemplate
