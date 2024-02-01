@@ -2,6 +2,7 @@
 templatest._abc
 ===============
 """
+
 from __future__ import annotations
 
 import re as _re
