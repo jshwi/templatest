@@ -4,6 +4,7 @@ templatest.utils
 
 Additional tools for working with string variables.
 """
+
 from __future__ import annotations
 
 import random as _random
