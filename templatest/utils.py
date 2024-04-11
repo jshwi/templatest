@@ -58,10 +58,7 @@ class VarSeq(_MutableStrSequence):
         raise NotImplementedError
 
     def _string(self, index: int) -> str:
-        if index > len(self):
-            index = len(self)
-
-        return f"{self._name}{self._suffix}{index}"
+        return f"{self._name}{self._suffix}{min(index, len(self))}"
 
 
 class VarSeqSuffix(VarSeq):
