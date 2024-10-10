@@ -82,7 +82,7 @@ pylint = "2.17.7"
 pytest = "^7.2.0"
 pytest-randomly = "^3.12.0"
 pytest-sugar = "^1.0.0"
-restview = "^3.0.0"
+restview = "^3.0.2"
 sphinx-immaterial = "^0.11.14"
 sphinx-toolbox = "^3.7.0"
 
