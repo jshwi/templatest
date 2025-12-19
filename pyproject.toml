@@ -69,7 +69,7 @@ repository = "https://github.com/jshwi/templatest"
 version = "0.11.0"
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.10"
 typing-extensions = "^4.8.0"
 
 [tool.poetry.group.dev.dependencies]
