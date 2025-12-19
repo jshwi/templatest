@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 [Unreleased](https://github.com/jshwi/templatest/compare/v0.10.1...HEAD)
 ------------------------------------------------------------------------
+### Changed
+- drop support for python3.8
 
 [0.10.1](https://github.com/jshwi/templatest/releases/tag/v0.10.1) - 2023-10-21
 ------------------------------------------------------------------------
