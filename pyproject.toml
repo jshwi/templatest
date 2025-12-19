@@ -66,7 +66,7 @@ maintainers = [
 name = "templatest"
 readme = "README.rst"
 repository = "https://github.com/jshwi/templatest"
-version = "0.10.1"
+version = "0.11.0"
 
 [tool.poetry.dependencies]
 python = "^3.9"
