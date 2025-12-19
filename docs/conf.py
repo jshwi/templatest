@@ -147,4 +147,5 @@ html_theme_options = {
             "link": "https://pypi.org/project/templatest/",
         },
     ],
+    "font": False,
 }
