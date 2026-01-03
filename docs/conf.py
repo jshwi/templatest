@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = "templatest"
-copyright = "2023, Stephen Whitlock"
+copyright = "2026, Stephen Whitlock"
 author = "Stephen Whitlock"
 
 # The full version, including alpha/beta/rc tags
